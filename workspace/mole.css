@@ -1,0 +1,51 @@
+/* 
+  CSS : html 태그의 스타일에 관여하는 언어 
+*/
+body {
+    font-family: Arial, Helvetica, sans-serif; /* 폰트 패밀리를 Arial, Helvetica, sans-serif 순서대로 지정 */
+    text-align: center; /* 본문의 모든 텍스트를 중앙 정렬 */
+    background: url("./mario-bg.jpg"); /* 배경 이미지를 "mario-bg.jpg"로 설정 (같은 디렉터리 내 파일) */
+    background-size: cover; /* 배경 이미지를 화면에 꽉 차도록 크기 조정 */
+}
+
+/* #은 id 선택, .은 class 선택 */
+/* div의 가운데 정렬은 margin: 0 auto; */
+#board {
+    width: 540px;
+    height: 540px;
+    /* background-color: green; */
+
+    margin: 0 auto;        /* 상하 여백은 0, 좌우 여백은 자동으로 설정하여 가로로 중앙 배치 */
+    display: flex;         /* Flexbox 레이아웃을 사용하여 자식 요소들을 정렬 */
+    flex-wrap: wrap;       /* 자식 요소들이 넘칠 경우 자동으로 줄 바꿈 */
+
+    background: url('./soil.png');
+    background-size: cover; 
+    border: 3px solid white; /* 3픽셀 두께의 실선 하얀색 테두리 */
+    border-radius: 25px; /* 25픽셀 반지름으로 둥근 모서리 */
+}
+
+#board div {
+  /* board = 540x540, divide into 3x3 tiles --> 180x180 per div */
+  width: 180px;
+  height: 180px;
+  background-image: url("./pipe.png");
+  background-size: cover;
+}
+
+/* mole, plant size */
+#board div img {
+  width: 100px;
+  height: 100px;
+
+  /* 텍스트 선택을 방지하여 사용자가 이미지를 드래그하여 선택할 수 없도록 함 */
+  user-select: none;  
+  /* Firefox 브라우저에서 텍스트 선택을 방지 */
+  -moz-user-select: none;  
+  /* Webkit 기반 브라우저(Chrome, Safari 등)에서 이미지 드래그를 방지 */
+  -webkit-user-drag: none;  
+  /* Webkit 기반 브라우저에서 텍스트 선택을 방지 */
+  -webkit-user-select: none;  
+  /* Microsoft Edge 및 IE에서 텍스트 선택을 방지 */
+  -ms-user-select: none;
+}
